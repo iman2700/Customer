@@ -1,0 +1,20 @@
+version: '3.4'
+
+services:
+  api:
+    image: ${DOCKER_REGISTRY-}api
+    build:
+      context: .
+      dockerfile: API/Dockerfile
+    ports:
+      - "8080:80"   
+    depends_on:
+      - sqlserver
+
+  sqlserver:
+    image: mcr.microsoft.com/mssql/server
+    environment:
+      ACCEPT_EULA: "Y"
+      MSSQL_DATABASE: "CustomerDb"   
+    ports:
+      - "1433:1433"   
