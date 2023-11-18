@@ -1,0 +1,4 @@
+﻿for add migrations for project set api as start up projcet or use this command in infrastrutur project
+
+dotnet ef migrations add InitialCreate --startup-project ../API/API.csproj
+dotnet ef database update --startup-project ../API/API.csproj
